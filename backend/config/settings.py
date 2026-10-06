@@ -40,8 +40,12 @@ DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 # =========================================================
 
 ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
+    host.strip()
+    for host in os.getenv(
+        "ALLOWED_HOSTS",
+        "localhost,127.0.0.1"
+    ).split(",")
+    if host.strip()
 ]
 
 
@@ -51,7 +55,9 @@ ALLOWED_HOSTS = [
 
 if not DEBUG:
     # HTTPS
-    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_PRELOAD = (
+    os.getenv("SECURE_HSTS_PRELOAD", "False").lower() == "true"
+)
 
     # HSTS
     SECURE_HSTS_SECONDS = 31536000
@@ -185,7 +191,12 @@ REST_FRAMEWORK = {
 # =========================================================
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
+    origin.strip()
+    for origin in os.getenv(
+        "CORS_ALLOWED_ORIGINS",
+        "http://localhost:5173"
+    ).split(",")
+    if origin.strip()
 ]
 
 
@@ -194,9 +205,13 @@ CORS_ALLOWED_ORIGINS = [
 # =========================================================
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:5173",
+    origin.strip()
+    for origin in os.getenv(
+        "CSRF_TRUSTED_ORIGINS",
+        "http://localhost:5173"
+    ).split(",")
+    if origin.strip()
 ]
-
 
 # =========================================================
 # Password validation
