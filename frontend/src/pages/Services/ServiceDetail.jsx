@@ -200,11 +200,23 @@ function ServiceDetail() {
               </div>
             </Reveal>
 
-            <div className="mt-10 grid gap-px bg-slate-200 md:grid-cols-2">
+            <div
+              className={`mt-10 grid gap-px bg-slate-200 ${
+                service.points.length === 1
+                  ? "md:grid-cols-1"
+                  : "md:grid-cols-2"
+              }`}
+            >
               {service.points.map((point, index) => (
                 <div
                   key={index}
-                  className="group flex gap-5 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:bg-slate-50 md:p-8"
+                  className={`group flex gap-5 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:bg-slate-50 md:p-8 ${
+                    service.points.length > 1 &&
+                    service.points.length % 2 === 1 &&
+                    index === service.points.length - 1
+                      ? "md:col-span-2"
+                      : ""
+                  }`}
                 >
                   <CheckCircle2
                     size={22}

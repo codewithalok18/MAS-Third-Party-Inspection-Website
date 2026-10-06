@@ -288,7 +288,11 @@ function Services() {
                     </Reveal>
 
                     {/* Service cards */}
-                    <StaggerContainer className="mt-10 grid gap-px bg-slate-300 md:grid-cols-2">
+                    <StaggerContainer
+  className={`mt-10 grid gap-px bg-slate-300 ${
+    groupServices.length > 1 ? "md:grid-cols-2" : "md:grid-cols-1"
+  }`}
+>
                       {groupServices.map((service, index) => {
                         const Icon =
                           iconMap[service.icon] || FileCheck2;
