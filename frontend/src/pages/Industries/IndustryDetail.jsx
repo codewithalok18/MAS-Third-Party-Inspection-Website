@@ -18,6 +18,14 @@ import {
 import API_BASE_URL from "../../services/api";
 import LoadingState from "../../components/common/LoadingState";
 import ErrorState from "../../components/common/ErrorState";
+import Reveal from "../../components/common/Reveal";
+
+import oilGasImage from "../../assets/industries/oil-gas.webp";
+import renewableEnergyImage from "../../assets/industries/renewable-energy.webp";
+import infrastructureImage from "../../assets/industries/infrastructure.webp";
+import miningMineralsImage from "../../assets/industries/mining-minerals.webp";
+import manufacturingImage from "../../assets/industries/manufacturing.webp";
+import industrialProjectsImage from "../../assets/industries/industrial-projects.webp";
 
 const iconMap = {
   FileCheck2,
@@ -29,6 +37,15 @@ const iconMap = {
   ShieldCheck,
   Sun,
   Truck,
+};
+
+const industryImages = {
+  "oil-gas": oilGasImage,
+  "renewable-energy": renewableEnergyImage,
+  infrastructure: infrastructureImage,
+  "mining-minerals": miningMineralsImage,
+  manufacturing: manufacturingImage,
+  "industrial-projects": industrialProjectsImage,
 };
 
 function IndustryDetail() {
@@ -177,23 +194,25 @@ function IndustryDetail() {
 
       {/* SUPPORT AREAS */}
       {industry.points?.length > 0 && (
-        <section className="bg-slate-50 py-20 md:py-24">
+        <section className="bg-slate-50 py-16 md:py-20">
           <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-                MAS Support Areas
-              </p>
+            <Reveal y={22}>
+              <div className="max-w-3xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  MAS Support Areas
+                </p>
 
-              <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-                Support where quality and project visibility matter.
-              </h2>
-            </div>
+                <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                  Support where quality and project visibility matter.
+                </h2>
+              </div>
+            </Reveal>
 
-            <div className="mt-12 grid gap-px bg-slate-200 md:grid-cols-2">
+            <div className="mt-10 grid gap-px bg-slate-200 md:grid-cols-2">
               {industry.points.map((point, index) => (
                 <div
                   key={index}
-                  className="flex gap-5 bg-white p-7 md:p-9"
+                  className="group flex gap-5 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:bg-slate-50 md:p-8"
                 >
                   <CheckCircle2
                     size={22}
@@ -219,17 +238,19 @@ function IndustryDetail() {
       {/* PROJECT LIFECYCLE */}
       <section className="bg-white py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-              Project Lifecycle
-            </p>
+          <Reveal y={22}>
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Project Lifecycle
+              </p>
 
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-              Support across critical project stages.
-            </h2>
-          </div>
+              <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                Support across critical project stages.
+              </h2>
+            </div>
+          </Reveal>
 
-          <div className="mt-14 grid border-l border-t border-slate-200 md:grid-cols-4">
+          <div className="mt-10 grid border-l border-t border-slate-200 md:grid-cols-4">
             {[
               {
                 number: "01",
@@ -274,7 +295,7 @@ function IndustryDetail() {
       </section>
 
       {/* WHY MAS */}
-      <section className="bg-slate-950 py-20 text-white md:py-24">
+      <section className="bg-slate-950 py-16 text-white md:py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-10 lg:grid-cols-2 lg:px-16">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
@@ -334,11 +355,22 @@ function IndustryDetail() {
                   <Link
                     key={item.id}
                     to={`/industries/${item.slug}`}
-                    className="group border border-slate-200 p-7 transition hover:border-slate-950"
+                    className="group border border-slate-200 p-7 transition duration-300 hover:-translate-y-1 hover:border-slate-950 hover:shadow-xl"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center bg-slate-950 text-white">
-                      <RelatedIcon size={21} />
-                    </div>
+                    {industryImages[item.slug] ? (
+                      <div className="relative h-40 overflow-hidden bg-slate-100">
+                        <img
+                          src={industryImages[item.slug]}
+                          alt={item.title}
+                          className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-slate-950/10" />
+                      </div>
+                    ) : (
+                      <div className="flex h-11 w-11 items-center justify-center bg-slate-950 text-white">
+                        <RelatedIcon size={21} />
+                      </div>
+                    )}
 
                     <h3 className="mt-7 text-xl font-bold text-slate-950">
                       {item.title}

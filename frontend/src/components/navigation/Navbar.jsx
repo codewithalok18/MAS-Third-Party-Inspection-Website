@@ -9,6 +9,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import masLogoMark from "../../assets/mas-logo-mark(1).png";
 
 const services = [
   {
@@ -246,29 +247,10 @@ function Navbar() {
             aria-label="MAS Third-Party Inspection & Expediting Service"
           >
             <img
-              src="/src/assets/mas-logo.png"
+              src={masLogoMark}
               alt="MAS Third-Party Inspection & Expediting Service"
-              className="h-12 w-auto object-contain"
-              onError={(event) => {
-                event.currentTarget.style.display = "none";
-                event.currentTarget.nextElementSibling.style.display = "flex";
-              }}
+              className="h-12 w-12 object-contain"
             />
-
-            <div className="hidden items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center bg-slate-950 text-sm font-black text-white">
-                MAS
-              </div>
-
-              <div className="hidden leading-tight sm:block">
-                <p className="text-sm font-black tracking-wide text-slate-950">
-                  MAS
-                </p>
-                <p className="text-[9px] font-semibold uppercase tracking-[0.08em] text-slate-500">
-                  Inspection & Expediting
-                </p>
-              </div>
-            </div>
           </Link>
 
           {/* DESKTOP NAV */}

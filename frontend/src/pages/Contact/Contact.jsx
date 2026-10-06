@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import API_BASE_URL from "../../services/api";
+import contactOfficeImage from "../../assets/contact/contact-office.webp";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -115,7 +116,10 @@ function Contact() {
       {/* =========================================================
           HERO
       ========================================================= */}
-      <section className="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-white md:py-28">
+        <img src={contactOfficeImage} alt="MAS office and project environment" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/78" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.92),rgba(2,6,23,0.55),rgba(2,6,23,0.75))]" />
         <div className="absolute inset-0 opacity-20">
           <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full border border-slate-700" />
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-slate-800" />
@@ -129,7 +133,7 @@ function Contact() {
           </Reveal>
 
           <Reveal delay={0.1} duration={0.75} y={32}>
-            <h1 className="mt-5 max-w-5xl text-5xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="mt-5 max-w-5xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               Let's discuss your
               <span className="block text-slate-400">
                 project requirements.
@@ -150,7 +154,7 @@ function Contact() {
       {/* =========================================================
           GENERAL ENQUIRIES
       ========================================================= */}
-      <section className="border-b border-slate-200 bg-white py-20 md:py-24">
+      <section className="border-b border-slate-200 bg-white py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <Reveal duration={0.65} y={28}>
@@ -524,7 +528,7 @@ function Contact() {
       {/* =========================================================
           HOW WE CAN HELP
       ========================================================= */}
-      <section className="bg-white py-24 md:py-28">
+      <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <Reveal duration={0.65} y={28}>
           <div className="max-w-3xl">
@@ -539,7 +543,7 @@ function Contact() {
           </Reveal>
 
           <StaggerContainer
-            className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+            className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
             delayChildren={0.08}
             staggerChildren={0.08}
           >
@@ -590,7 +594,7 @@ function Contact() {
       {/* =========================================================
           LOCATION / PRESENCE
       ========================================================= */}
-      <section className="bg-slate-50 py-24 md:py-28">
+      <section className="bg-slate-50 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <div className="grid gap-10 lg:grid-cols-2">
             <Reveal duration={0.65} y={28}>
@@ -612,29 +616,39 @@ function Contact() {
             </Reveal>
 
             <Reveal delay={0.12} duration={0.65} y={28}>
-            <div className="group flex items-center border border-slate-200 bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-xl md:p-10">
-              <div className="flex gap-5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-slate-950 text-white transition duration-300 group-hover:scale-105">
-                  <MapPin size={25} />
-                </div>
+            <div className="overflow-hidden border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-xl">
+              <div className="group h-64 overflow-hidden bg-slate-100 md:h-72">
+                <img
+                  src={contactOfficeImage}
+                  alt="MAS office and project environment"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+              </div>
 
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                    Current Office Information
-                  </p>
+              <div className="p-7 md:p-8">
+                <div className="flex gap-5">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-slate-950 text-white">
+                    <MapPin size={25} />
+                  </div>
 
-                  <h3 className="mt-3 text-2xl font-bold text-slate-950">
-                    MAS
-                  </h3>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                      Current Office Information
+                    </p>
 
-                  <p className="mt-2 text-slate-600">
-                    India
-                  </p>
+                    <h3 className="mt-3 text-2xl font-bold text-slate-950">
+                      MAS
+                    </h3>
 
-                  <p className="mt-5 text-sm leading-6 text-slate-500">
-                    Detailed office address and location information can be
-                    added here once the final MAS office details are confirmed.
-                  </p>
+                    <p className="mt-2 text-slate-600">
+                      India
+                    </p>
+
+                    <p className="mt-5 text-sm leading-6 text-slate-500">
+                      Detailed office address and location information can be
+                      added here once the final MAS office details are confirmed.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -646,7 +660,7 @@ function Contact() {
       {/* =========================================================
           FINAL CTA
       ========================================================= */}
-      <section className="bg-slate-950 py-24 text-white md:py-28">
+      <section className="bg-slate-950 py-16 text-white md:py-20">
         <Reveal duration={0.7} y={28}>
         <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">

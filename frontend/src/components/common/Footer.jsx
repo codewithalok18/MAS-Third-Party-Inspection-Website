@@ -1,5 +1,6 @@
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import masLogoHorizontal from "../../assets/mas-logo-horizontal-footer.png";
 
 const serviceLinks = [
   ["Inspection Services", "/services#inspection-services"],
@@ -53,20 +54,12 @@ function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           {/* BRAND */}
           <div>
-            <Link to="/" className="inline-flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center bg-white text-sm font-black text-slate-950">
-                MAS
-              </div>
-
-              <div>
-                <p className="text-sm font-black tracking-wide">
-                  MAS
-                </p>
-
-                <p className="max-w-[220px] text-[9px] font-semibold uppercase leading-4 tracking-[0.08em] text-slate-500">
-                  Third-Party Inspection & Expediting Service
-                </p>
-              </div>
+            <Link to="/" className="inline-flex items-center">
+              <img
+                src={masLogoHorizontal}
+                alt="MAS Third-Party Inspection & Expediting Service"
+                className="h-auto w-[260px] max-w-full object-contain object-left"
+              />
             </Link>
 
             <p className="mt-7 max-w-sm text-sm leading-7 text-slate-400">
@@ -184,9 +177,7 @@ function Footer() {
             Expediting Service. All rights reserved.
           </p>
 
-          <p>
-            Professional inspection & technical services
-          </p>
+          <p>Professional inspection & technical services</p>
         </div>
       </div>
     </footer>
@@ -194,3 +185,4 @@ function Footer() {
 }
 
 export default Footer;
+

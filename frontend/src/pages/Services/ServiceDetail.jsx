@@ -14,6 +14,14 @@ import {
 import API_BASE_URL from "../../services/api";
 import LoadingState from "../../components/common/LoadingState";
 import ErrorState from "../../components/common/ErrorState";
+import Reveal from "../../components/common/Reveal";
+
+import inspectionImage from "../../assets/services/inspection.webp";
+import qualityAssuranceImage from "../../assets/services/quality-assurance.webp";
+import qualityControlImage from "../../assets/services/quality-control.webp";
+import expeditingImage from "../../assets/services/expediting.webp";
+import technicalServicesImage from "../../assets/services/technical-services.webp";
+import auditComplianceImage from "../../assets/services/audit-compliance.webp";
 
 const iconMap = {
   SearchCheck,
@@ -21,6 +29,15 @@ const iconMap = {
   FileCheck2,
   Truck,
   Settings2,
+};
+
+const serviceImages = {
+  "inspection-services": inspectionImage,
+  "quality-assurance": qualityAssuranceImage,
+  "quality-control": qualityControlImage,
+  expediting: expeditingImage,
+  "technical-services": technicalServicesImage,
+  "audit-compliance": auditComplianceImage,
 };
 
 function ServiceDetail() {
@@ -169,23 +186,25 @@ function ServiceDetail() {
 
       {/* KEY CAPABILITIES */}
       {service.points?.length > 0 && (
-        <section className="bg-slate-50 py-20 md:py-24">
+        <section className="bg-slate-50 py-16 md:py-20">
           <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-                Key Capabilities
-              </p>
+            <Reveal y={22}>
+              <div className="max-w-3xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  Key Capabilities
+                </p>
 
-              <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-                Focused on the activities that matter.
-              </h2>
-            </div>
+                <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                  Focused on the activities that matter.
+                </h2>
+              </div>
+            </Reveal>
 
-            <div className="mt-12 grid gap-px bg-slate-200 md:grid-cols-2">
+            <div className="mt-10 grid gap-px bg-slate-200 md:grid-cols-2">
               {service.points.map((point, index) => (
                 <div
                   key={index}
-                  className="flex gap-5 bg-white p-7 md:p-9"
+                  className="group flex gap-5 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:bg-slate-50 md:p-8"
                 >
                   <CheckCircle2
                     size={22}
@@ -211,17 +230,19 @@ function ServiceDetail() {
       {/* HOW WE WORK */}
       <section className="bg-white py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-              How We Work
-            </p>
+          <Reveal y={22}>
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                How We Work
+              </p>
 
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-              A structured approach from requirement to reporting.
-            </h2>
-          </div>
+              <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                A structured approach from requirement to reporting.
+              </h2>
+            </div>
+          </Reveal>
 
-          <div className="mt-14 grid border-l border-t border-slate-200 md:grid-cols-4">
+          <div className="mt-10 grid border-l border-t border-slate-200 md:grid-cols-4">
             {[
               {
                 number: "01",
@@ -266,7 +287,7 @@ function ServiceDetail() {
       </section>
 
       {/* WHY MAS */}
-      <section className="bg-slate-950 py-20 text-white md:py-24">
+      <section className="bg-slate-950 py-16 text-white md:py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-10 lg:grid-cols-2 lg:px-16">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
@@ -326,11 +347,22 @@ function ServiceDetail() {
                   <Link
                     key={item.id}
                     to={`/services/${item.slug}`}
-                    className="group border border-slate-200 p-7 transition hover:border-slate-950"
+                    className="group border border-slate-200 p-7 transition duration-300 hover:-translate-y-1 hover:border-slate-950 hover:shadow-xl"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center bg-slate-950 text-white">
-                      <RelatedIcon size={21} />
-                    </div>
+                    {serviceImages[item.slug] ? (
+                      <div className="relative h-40 overflow-hidden bg-slate-100">
+                        <img
+                          src={serviceImages[item.slug]}
+                          alt={item.title}
+                          className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-slate-950/10" />
+                      </div>
+                    ) : (
+                      <div className="flex h-11 w-11 items-center justify-center bg-slate-950 text-white">
+                        <RelatedIcon size={21} />
+                      </div>
+                    )}
 
                     <h3 className="mt-7 text-xl font-bold text-slate-950">
                       {item.title}

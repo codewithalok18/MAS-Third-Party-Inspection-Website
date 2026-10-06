@@ -7,7 +7,7 @@ import StaggerItem from "../../components/common/StaggerItem";
 function ClientPortal() {
   return (
     <main>
-      <section className="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-white md:py-28">
         <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full border border-slate-800" />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-8 lg:px-12">
@@ -36,10 +36,10 @@ function ClientPortal() {
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-4xl px-5 md:px-8 lg:px-12">
           <Reveal duration={0.7} y={28}>
-            <div className="border border-slate-200 bg-slate-50 p-8 md:p-12">
+            <div className="border border-slate-200 bg-slate-50 p-7 md:p-9">
               <StaggerContainer
                 delayChildren={0.05}
                 staggerChildren={0.08}
@@ -94,3 +94,4 @@ function ClientPortal() {
 }
 
 export default ClientPortal;
+

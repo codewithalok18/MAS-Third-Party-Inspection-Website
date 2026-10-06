@@ -20,6 +20,22 @@ import Reveal from "../../components/common/Reveal";
 import StaggerContainer from "../../components/common/StaggerContainer";
 import StaggerItem from "../../components/common/StaggerItem";
 
+import oilGasImage from "../../assets/industries/oil-gas.webp";
+import renewableEnergyImage from "../../assets/industries/renewable-energy.webp";
+import infrastructureImage from "../../assets/industries/infrastructure.webp";
+import miningMineralsImage from "../../assets/industries/mining-minerals.webp";
+import manufacturingImage from "../../assets/industries/manufacturing.webp";
+import industrialProjectsImage from "../../assets/industries/industrial-projects.webp";
+
+const industryImages = {
+  "oil-gas": oilGasImage,
+  "renewable-energy": renewableEnergyImage,
+  infrastructure: infrastructureImage,
+  "mining-minerals": miningMineralsImage,
+  manufacturing: manufacturingImage,
+  "industrial-projects": industrialProjectsImage,
+};
+
 const API_URL = `${API_BASE_URL}/api/industries/`;
 
 const iconMap = {
@@ -69,7 +85,10 @@ function Industries() {
       {/* =========================================================
           HERO
       ========================================================= */}
-      <section className="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-white md:py-28">
+        <img src={oilGasImage} alt="Industrial project environment" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/75" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.92),rgba(2,6,23,0.55),rgba(2,6,23,0.72))]" />
         <div className="absolute inset-0 opacity-20">
           <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full border border-slate-700" />
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-slate-800" />
@@ -83,7 +102,7 @@ function Industries() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h1 className="mt-5 max-w-5xl text-5xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="mt-5 max-w-5xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               Supporting projects across demanding industrial sectors.
             </h1>
           </Reveal>
@@ -119,7 +138,7 @@ function Industries() {
       {/* =========================================================
           INTRO
       ========================================================= */}
-      <section className="border-b border-slate-200 bg-white py-20 md:py-24">
+      <section className="border-b border-slate-200 bg-white py-16 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 md:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:px-16">
           <Reveal>
             <div>
@@ -189,7 +208,7 @@ function Industries() {
           ========================================================= */}
           <section
             id="industry-portfolio"
-            className="bg-slate-50 py-24 md:py-28"
+            className="bg-slate-50 py-16 md:py-20"
           >
             <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
               <Reveal y={28}>
@@ -230,7 +249,7 @@ function Industries() {
               {/* =====================================================
                   INDUSTRY FEATURE CARDS
               ===================================================== */}
-              <StaggerContainer className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <StaggerContainer className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {industries.map((industry, index) => {
                   const Icon = iconMap[industry.icon] || Building2;
                   const number = String(index + 1).padStart(2, "0");
@@ -241,6 +260,16 @@ function Industries() {
                         to={`/industries/${industry.slug}`}
                         className="group block h-full border border-slate-200 bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-slate-950 hover:shadow-xl"
                       >
+                        {industryImages[industry.slug] && (
+                          <div className="mb-8 h-48 overflow-hidden bg-slate-100">
+                            <img
+                              src={industryImages[industry.slug]}
+                              alt={industry.title}
+                              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                            />
+                          </div>
+                        )}
+
                         <div className="flex items-start justify-between">
                           <div className="flex h-12 w-12 items-center justify-center bg-slate-950 text-white">
                             <Icon size={22} />
@@ -277,7 +306,7 @@ function Industries() {
           {/* =========================================================
               DETAILED INDUSTRY SECTIONS
           ========================================================= */}
-          <section className="bg-white py-24 md:py-28">
+          <section className="bg-white py-16 md:py-20">
             <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
               <Reveal y={28}>
                 <div className="max-w-3xl">
@@ -292,7 +321,7 @@ function Industries() {
               </Reveal>
 
               <StaggerContainer
-                className="mt-16 space-y-6"
+                className="mt-10 space-y-6"
                 delayChildren={0.05}
                 staggerChildren={0.1}
               >
@@ -307,7 +336,17 @@ function Industries() {
                       >
                         <div className="grid lg:grid-cols-[0.75fr_1.25fr]">
                           {/* LEFT */}
-                          <div className="border-b border-slate-200 bg-slate-50 p-8 md:p-10 lg:border-b-0 lg:border-r">
+                          <div className="border-b border-slate-200 bg-slate-50 p-7 md:p-8 lg:border-b-0 lg:border-r">
+                            {industryImages[industry.slug] && (
+                              <div className="mb-8 h-52 overflow-hidden bg-slate-100">
+                                <img
+                                  src={industryImages[industry.slug]}
+                                  alt={industry.title}
+                                  className="h-full w-full object-cover"
+                                />
+                              </div>
+                            )}
+
                             <div className="flex items-center justify-between">
                               <div className="flex h-14 w-14 items-center justify-center bg-slate-950 text-white">
                                 <Icon size={25} />
@@ -328,7 +367,7 @@ function Industries() {
                           </div>
 
                           {/* RIGHT */}
-                          <div className="p-8 md:p-10">
+                          <div className="p-7 md:p-8">
                             <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
                               Sector Support
                             </p>
@@ -380,7 +419,7 @@ function Industries() {
       {/* =========================================================
           PROJECT LIFECYCLE
       ========================================================= */}
-      <section className="bg-slate-950 py-24 text-white md:py-28">
+      <section className="bg-slate-950 py-16 text-white md:py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <Reveal>
@@ -449,7 +488,7 @@ function Industries() {
       {/* =========================================================
           CTA
       ========================================================= */}
-      <section className="bg-white py-24 md:py-28">
+      <section className="bg-white py-16 md:py-20">
         <Reveal y={30} duration={0.7}>
           <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">

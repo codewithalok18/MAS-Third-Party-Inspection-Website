@@ -12,8 +12,7 @@ import API_BASE_URL from "../../services/api";
 import LoadingState from "../../components/common/LoadingState";
 import ErrorState from "../../components/common/ErrorState";
 import Reveal from "../../components/common/Reveal";
-import StaggerContainer from "../../components/common/StaggerContainer";
-import StaggerItem from "../../components/common/StaggerItem";
+import homeIndustrial from "../../assets/home/home-industrial.webp";
 
 const API_URL = `${API_BASE_URL}/api/news/`;
 
@@ -95,7 +94,10 @@ function News() {
       {/* =========================================================
           HERO
       ========================================================= */}
-      <section className="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-white md:py-28">
+        <img src={homeIndustrial} alt="News and industrial project environment" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/78" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.92),rgba(2,6,23,0.55),rgba(2,6,23,0.75))]" />
         <div className="absolute inset-0 opacity-20">
           <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full border border-slate-700" />
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-slate-800" />
@@ -109,7 +111,7 @@ function News() {
           </Reveal>
 
           <Reveal delay={0.1} duration={0.75} y={32}>
-            <h1 className="mt-5 max-w-5xl text-5xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="mt-5 max-w-5xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               Updates, insights and developments from MAS.
             </h1>
           </Reveal>
@@ -126,33 +128,29 @@ function News() {
       {/* =========================================================
           INTRO
       ========================================================= */}
-      <section className="border-b border-slate-200 bg-white py-20 md:py-24">
+      <section className="border-b border-slate-200 bg-white py-16 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 md:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:px-16">
-          <Reveal duration={0.65} y={28}>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-                News & Media
-              </p>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+              News & Media
+            </p>
 
-              <h2 className="mt-4 max-w-xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-                Stay informed about MAS.
-              </h2>
-            </div>
-          </Reveal>
+            <h2 className="mt-4 max-w-xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+              Stay informed about MAS.
+            </h2>
+          </div>
 
-          <Reveal delay={0.12} duration={0.65} y={28}>
-            <div className="max-w-2xl">
-              <p className="text-lg leading-8 text-slate-600">
-                This section brings together published MAS updates, service
-                developments and relevant industry information in one place.
-              </p>
+          <div className="max-w-2xl">
+            <p className="text-lg leading-8 text-slate-600">
+              This section brings together published MAS updates, service
+              developments and relevant industry information in one place.
+            </p>
 
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                New content can be managed through the administration panel and
-                published directly to the website.
-              </p>
-            </div>
-          </Reveal>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              New content can be managed through the administration panel and
+              published directly to the website.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -214,30 +212,27 @@ function News() {
           {/* =======================================================
               FEATURED ARTICLE
           ======================================================= */}
-          <section className="bg-white py-24 md:py-28">
+          <section className="bg-white py-16 md:py-20">
             <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-              <Reveal duration={0.65} y={28}>
-                <div className="flex items-end justify-between gap-6">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-                      Featured
-                    </p>
+              <div className="flex items-end justify-between gap-6">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                    Featured
+                  </p>
 
-                    <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-                      Latest update
-                    </h2>
-                  </div>
-
-                  <div className="hidden items-center gap-2 text-sm text-slate-400 md:flex">
-                    <CalendarDays size={16} />
-                    <span>{formatDate(featuredArticle?.published_at)}</span>
-                  </div>
+                  <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                    Latest update
+                  </h2>
                 </div>
-              </Reveal>
+
+                <div className="hidden items-center gap-2 text-sm text-slate-400 md:flex">
+                  <CalendarDays size={16} />
+                  <span>{formatDate(featuredArticle?.published_at)}</span>
+                </div>
+              </div>
 
               {featuredArticle && (
-                <Reveal delay={0.12} duration={0.7} y={30}>
-                  <article className="mt-12 grid overflow-hidden border border-slate-200 lg:grid-cols-[1.15fr_0.85fr]">
+                <article className="mt-10 grid overflow-hidden border border-slate-200 lg:grid-cols-[1.15fr_0.85fr]">
                   {/* FEATURED IMAGE */}
                   <div className="min-h-[360px] bg-slate-100">
                     {featuredArticle.image ? (
@@ -291,8 +286,7 @@ function News() {
                       <ArrowRight size={16} />
                     </Link>
                   </div>
-                  </article>
-                </Reveal>
+                </article>
               )}
             </div>
           </section>
@@ -302,24 +296,18 @@ function News() {
           ======================================================= */}
           <section className="border-y border-slate-200 bg-slate-50">
             <div className="mx-auto max-w-7xl px-6 py-6 md:px-10 lg:px-16">
-              <Reveal duration={0.55} y={18}>
-                <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-                  <p className="text-sm font-bold uppercase tracking-[0.15em] text-slate-500">
-                    Filter by category
-                  </p>
+              <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+                <p className="text-sm font-bold uppercase tracking-[0.15em] text-slate-500">
+                  Filter by category
+                </p>
 
-                  <StaggerContainer
-                    className="flex flex-wrap gap-2"
-                    delayChildren={0.05}
-                    staggerChildren={0.05}
-                  >
+                <div className="flex flex-wrap gap-2">
                   {categories.map((category) => {
                     const active = activeCategory === category;
 
                     return (
-                      <StaggerItem key={category} y={12} duration={0.35}>
-                        <button
-                          key={category}
+                      <button
+                        key={category}
                         type="button"
                         onClick={() => setActiveCategory(category)}
                         className={`px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition ${
@@ -328,54 +316,45 @@ function News() {
                             : "border border-slate-300 bg-white text-slate-600 hover:border-slate-950 hover:text-slate-950"
                         }`}
                       >
-                          {category === "all"
-                            ? "All"
-                            : formatCategory(category)}
-                        </button>
-                      </StaggerItem>
+                        {category === "all"
+                          ? "All"
+                          : formatCategory(category)}
+                      </button>
                     );
                   })}
-                  </StaggerContainer>
                 </div>
-              </Reveal>
+              </div>
             </div>
           </section>
 
           {/* =======================================================
               LATEST NEWS GRID
           ======================================================= */}
-          <section className="bg-slate-50 py-24 md:py-28">
+          <section className="bg-slate-50 py-16 md:py-20">
             <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-              <Reveal duration={0.65} y={28}>
-                <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-                      Latest
-                    </p>
-
-                    <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-                      From MAS
-                    </h2>
-                  </div>
-
-                  <p className="max-w-md text-sm leading-6 text-slate-500">
-                    Explore the latest published updates and information from
-                    MAS.
+              <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                    Latest
                   </p>
+
+                  <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                    From MAS
+                  </h2>
                 </div>
-              </Reveal>
+
+                <p className="max-w-md text-sm leading-6 text-slate-500">
+                  Explore the latest published updates and information from
+                  MAS.
+                </p>
+              </div>
 
               {remainingArticles.length > 0 ? (
-                <StaggerContainer
-                  className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-                  delayChildren={0.08}
-                  staggerChildren={0.09}
-                >
+                <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {remainingArticles.map((item) => (
-                    <StaggerItem key={item.id} y={25} duration={0.5}>
                     <article
                       key={item.id}
-                      className="group flex h-full flex-col overflow-hidden border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-slate-950 hover:shadow-xl"
+                      className="group flex h-full flex-col overflow-hidden border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-slate-950 hover:shadow-lg"
                     >
                       {/* IMAGE */}
                       {item.image ? (
@@ -427,11 +406,10 @@ function News() {
                         </Link>
                       </div>
                     </article>
-                    </StaggerItem>
                   ))}
-                </StaggerContainer>
+                </div>
               ) : (
-                <div className="mt-14 border border-slate-200 bg-white p-10 text-center">
+                <div className="mt-10 border border-slate-200 bg-white p-10 text-center">
                   <Newspaper
                     size={35}
                     className="mx-auto text-slate-400"
@@ -452,31 +430,25 @@ function News() {
           {/* =======================================================
               MEDIA AREAS
           ======================================================= */}
-          <section className="bg-white py-24 md:py-28">
+          <section className="bg-white py-16 md:py-20">
             <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-              <Reveal duration={0.65} y={28}>
-                <div className="max-w-3xl">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-                    Media & Information
-                  </p>
+              <div className="max-w-3xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  Media & Information
+                </p>
 
-                  <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-                    Information that keeps you connected.
-                  </h2>
+                <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                  Information that keeps you connected.
+                </h2>
 
-                  <p className="mt-5 text-lg leading-8 text-slate-600">
-                    MAS can use this space to share company developments,
-                    technical perspectives and information relevant to the
-                    industries it supports.
-                  </p>
-                </div>
-              </Reveal>
+                <p className="mt-5 text-lg leading-8 text-slate-600">
+                  MAS can use this space to share company developments,
+                  technical perspectives and information relevant to the
+                  industries it supports.
+                </p>
+              </div>
 
-              <StaggerContainer
-                className="mt-14 grid gap-6 md:grid-cols-3"
-                delayChildren={0.08}
-                staggerChildren={0.1}
-              >
+              <div className="mt-10 grid gap-6 md:grid-cols-3">
                 {[
                   {
                     number: "01",
@@ -494,8 +466,8 @@ function News() {
                     text: "Relevant information and developments across supported sectors.",
                   },
                 ].map((item) => (
-                  <StaggerItem key={item.number} y={22} duration={0.45}>
                   <div
+                    key={item.number}
                     className="border-t-2 border-slate-950 pt-6"
                   >
                     <span className="text-xs font-bold tracking-[0.2em] text-slate-400">
@@ -510,9 +482,8 @@ function News() {
                       {item.text}
                     </p>
                   </div>
-                  </StaggerItem>
                 ))}
-              </StaggerContainer>
+              </div>
             </div>
           </section>
         </>
@@ -522,30 +493,28 @@ function News() {
           CTA
       ========================================================= */}
       <section className="bg-slate-950 py-24 text-white md:py-28">
-        <Reveal duration={0.7} y={30}>
-          <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-              Connect With MAS
-            </p>
+        <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+            Connect With MAS
+          </p>
 
-            <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
-              Have a project or service requirement?
-            </h2>
+          <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+            Have a project or service requirement?
+          </h2>
 
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-400">
-              Get in touch with MAS to discuss your project requirements,
-              technical needs or quality support.
-            </p>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-400">
+            Get in touch with MAS to discuss your project requirements,
+            technical needs or quality support.
+          </p>
 
-            <Link
-              to="/contact"
-              className="mt-8 inline-flex items-center gap-2 bg-white px-7 py-4 text-sm font-semibold text-slate-950 transition hover:bg-slate-200"
-            >
-              Contact MAS
-              <ArrowRight size={17} />
-            </Link>
-          </div>
-        </Reveal>
+          <Link
+            to="/contact"
+            className="mt-8 inline-flex items-center gap-2 bg-white px-7 py-4 text-sm font-semibold text-slate-950 transition hover:bg-slate-200"
+          >
+            Contact MAS
+            <ArrowRight size={17} />
+          </Link>
+        </div>
       </section>
     </div>
   );

@@ -14,8 +14,7 @@ import API_BASE_URL from "../../services/api";
 import LoadingState from "../../components/common/LoadingState";
 import ErrorState from "../../components/common/ErrorState";
 import Reveal from "../../components/common/Reveal";
-import StaggerContainer from "../../components/common/StaggerContainer";
-import StaggerItem from "../../components/common/StaggerItem";
+import companyCover from "../../assets/home/company-cover.png";
 
 const API_URL = `${API_BASE_URL}/api/downloads/`;
 
@@ -101,7 +100,10 @@ function Downloads() {
       {/* =========================================================
           HERO
       ========================================================= */}
-      <section className="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-white md:py-28">
+        <img src={companyCover} alt="MAS company information" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/78" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.92),rgba(2,6,23,0.55),rgba(2,6,23,0.75))]" />
         <div className="absolute inset-0 opacity-20">
           <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full border border-slate-700" />
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-slate-800" />
@@ -115,7 +117,7 @@ function Downloads() {
           </Reveal>
 
           <Reveal delay={0.1} duration={0.75} y={32}>
-            <h1 className="mt-5 max-w-5xl text-5xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="mt-5 max-w-5xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               Company information and project resources.
             </h1>
           </Reveal>
@@ -132,9 +134,8 @@ function Downloads() {
       {/* =========================================================
           INTRO
       ========================================================= */}
-      <section className="border-b border-slate-200 bg-white py-20 md:py-24">
+      <section className="border-b border-slate-200 bg-white py-16 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 md:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:px-16">
-          <Reveal y={24} duration={0.6}>
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
               Resource Centre
@@ -144,9 +145,7 @@ function Downloads() {
               Information for clients and project partners.
             </h2>
           </div>
-          </Reveal>
 
-          <Reveal delay={0.1} y={24} duration={0.6}>
           <div className="max-w-2xl">
             <p className="text-lg leading-8 text-slate-600">
               Find relevant MAS documentation in one central location.
@@ -160,7 +159,6 @@ function Downloads() {
               published resources are displayed here.
             </p>
           </div>
-          </Reveal>
         </div>
       </section>
 
@@ -225,12 +223,7 @@ function Downloads() {
           ======================================================= */}
           <section className="bg-slate-50 py-20">
             <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-              <StaggerContainer
-                className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-                delayChildren={0.05}
-                staggerChildren={0.08}
-              >
-                <StaggerItem>
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 <div className="border border-slate-200 bg-white p-7">
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
                     Published Resources
@@ -244,9 +237,7 @@ function Downloads() {
                     Documents currently available.
                   </p>
                 </div>
-                </StaggerItem>
 
-                <StaggerItem>
                 <div className="border border-slate-200 bg-white p-7">
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
                     Resource Categories
@@ -260,9 +251,7 @@ function Downloads() {
                     Types of published resources.
                   </p>
                 </div>
-                </StaggerItem>
 
-                <StaggerItem>
                 <div className="border border-slate-200 bg-white p-7">
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
                     Access
@@ -276,17 +265,15 @@ function Downloads() {
                     Download published documents directly.
                   </p>
                 </div>
-                </StaggerItem>
-              </StaggerContainer>
+              </div>
             </div>
           </section>
 
           {/* =======================================================
               DOCUMENT LIBRARY
           ======================================================= */}
-          <section className="bg-white py-24 md:py-28">
+          <section className="bg-white py-16 md:py-20">
             <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-              <Reveal y={24} duration={0.6}>
               <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -303,19 +290,13 @@ function Downloads() {
                   <span>Filter resources</span>
                 </div>
               </div>
-              </Reveal>
 
               {/* CATEGORY FILTER */}
-              <StaggerContainer
-                className="mt-10 flex flex-wrap gap-2"
-                delayChildren={0.03}
-                staggerChildren={0.05}
-              >
+              <div className="mt-10 flex flex-wrap gap-2">
                 {availableTypes.map((type) => {
                   const active = activeType === type;
 
                   return (
-                    <StaggerItem key={`filter-${type}`} y={12} duration={0.35}>
                     <button
                       key={type}
                       type="button"
@@ -330,18 +311,13 @@ function Downloads() {
                         ? "All Resources"
                         : formatDocumentType(type)}
                     </button>
-                    </StaggerItem>
                   );
                 })}
-              </StaggerContainer>
+              </div>
 
               {/* DOCUMENTS */}
               {filteredDocuments.length > 0 ? (
-                <StaggerContainer
-                  className="mt-12 grid gap-6 lg:grid-cols-2"
-                  delayChildren={0.05}
-                  staggerChildren={0.08}
-                >
+                <div className="mt-10 grid gap-6 lg:grid-cols-2">
                   {filteredDocuments.map((document) => {
                     const config =
                       documentTypeConfig[document.document_type] ||
@@ -350,9 +326,9 @@ function Downloads() {
                     const Icon = config.icon;
 
                     return (
-                      <StaggerItem key={`document-${document.id}`}>
                       <article
-                        className="group border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-slate-950 hover:shadow-xl md:p-8"
+                        key={document.id}
+                        className="group border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-slate-950 hover:shadow-lg md:p-8"
                       >
                         <div className="flex items-start justify-between gap-5">
                           <div className="flex h-14 w-14 items-center justify-center bg-slate-950 text-white">
@@ -404,12 +380,11 @@ function Downloads() {
                           )}
                         </div>
                       </article>
-                      </StaggerItem>
                     );
                   })}
-                </StaggerContainer>
+                </div>
               ) : (
-                <div className="mt-12 border border-slate-200 bg-slate-50 p-12 text-center">
+                <div className="mt-10 border border-slate-200 bg-slate-50 p-12 text-center">
                   <FileText
                     size={38}
                     className="mx-auto text-slate-400"
@@ -430,9 +405,8 @@ function Downloads() {
           {/* =======================================================
               RESOURCE TYPES
           ======================================================= */}
-          <section className="bg-slate-50 py-24 md:py-28">
+          <section className="bg-slate-50 py-16 md:py-20">
             <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-              <Reveal y={24} duration={0.6}>
               <div className="max-w-3xl">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                   Resource Types
@@ -442,14 +416,8 @@ function Downloads() {
                   Documents for different project needs.
                 </h2>
               </div>
-              </Reveal>
 
-              <StaggerContainer
-                className="mt-14 grid gap-6 md:grid-cols-3"
-                delayChildren={0.05}
-                staggerChildren={0.08}
-              >
-                <StaggerItem>
+              <div className="mt-10 grid gap-6 md:grid-cols-3">
                 <div className="border-t-2 border-slate-950 bg-white p-7">
                   <BriefcaseBusiness size={27} />
 
@@ -462,9 +430,7 @@ function Downloads() {
                     published by MAS.
                   </p>
                 </div>
-                </StaggerItem>
 
-                <StaggerItem>
                 <div className="border-t-2 border-slate-950 bg-white p-7">
                   <FileCheck2 size={27} />
 
@@ -477,9 +443,7 @@ function Downloads() {
                     capabilities.
                   </p>
                 </div>
-                </StaggerItem>
 
-                <StaggerItem>
                 <div className="border-t-2 border-slate-950 bg-white p-7">
                   <ShieldCheck size={27} />
 
@@ -492,8 +456,7 @@ function Downloads() {
                     published.
                   </p>
                 </div>
-                </StaggerItem>
-              </StaggerContainer>
+              </div>
             </div>
           </section>
         </>
@@ -503,7 +466,6 @@ function Downloads() {
           CTA
       ========================================================= */}
       <section className="bg-slate-950 py-24 text-white md:py-28">
-        <Reveal y={24} duration={0.65}>
         <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
             Need More Information?
@@ -526,7 +488,6 @@ function Downloads() {
             <ArrowRight size={17} />
           </Link>
         </div>
-        </Reveal>
       </section>
     </div>
   );

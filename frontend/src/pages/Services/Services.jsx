@@ -20,6 +20,23 @@ import ErrorState from "../../components/common/ErrorState";
 
 const API_URL = `${API_BASE_URL}/api/services/`;
 
+import inspectionImage from "../../assets/services/inspection.webp";
+import qualityAssuranceImage from "../../assets/services/quality-assurance.webp";
+import qualityControlImage from "../../assets/services/quality-control.webp";
+import expeditingImage from "../../assets/services/expediting.webp";
+import technicalServicesImage from "../../assets/services/technical-services.webp";
+import auditComplianceImage from "../../assets/services/audit-compliance.webp";
+
+const serviceImages = {
+  "inspection-services": inspectionImage,
+  "quality-assurance": qualityAssuranceImage,
+  "quality-control": qualityControlImage,
+  expediting: expeditingImage,
+  "technical-services": technicalServicesImage,
+  "audit-compliance": auditComplianceImage,
+};
+
+
 const iconMap = {
   SearchCheck,
   ShieldCheck,
@@ -101,9 +118,11 @@ function Services() {
     <div>
       {/* HERO */}
       <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_30%,rgba(255,255,255,0.10),transparent_35%)]" />
+        <img src={inspectionImage} alt="MAS inspection services" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/75" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.90),rgba(2,6,23,0.55),rgba(2,6,23,0.70))]" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32 lg:px-16">
+        <div className="relative mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28 lg:px-16">
           <div className="max-w-4xl">
             <Reveal duration={0.65} y={24}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">
@@ -112,7 +131,7 @@ function Services() {
             </Reveal>
 
             <Reveal delay={0.1} duration={0.75} y={32}>
-              <h1 className="mt-5 text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+              <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                 Technical services supporting quality, control and project
                 delivery.
               </h1>
@@ -150,7 +169,7 @@ function Services() {
       </section>
 
       {/* INTRO */}
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-white py-16 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 md:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:px-16">
           <Reveal y={28}>
             <div>
@@ -184,7 +203,7 @@ function Services() {
       {/* SERVICE GROUPS */}
       <section
         id="service-groups"
-        className="scroll-mt-20 bg-slate-50 py-24 md:py-28"
+        className="scroll-mt-20 bg-slate-50 py-16 md:py-20"
       >
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <Reveal y={28}>
@@ -201,14 +220,14 @@ function Services() {
 
           {/* Loading */}
           {loading && (
-            <div className="mt-14">
+            <div className="mt-10">
               <LoadingState message="Loading our services..." />
             </div>
           )}
 
           {/* Error */}
           {!loading && error && (
-            <div className="mt-14">
+            <div className="mt-10">
               <ErrorState
                 message={error}
                 onRetry={fetchServices}
@@ -218,7 +237,7 @@ function Services() {
 
           {/* Empty */}
           {!loading && !error && services.length === 0 && (
-            <div className="mt-14 border border-slate-200 bg-white p-12 text-center">
+            <div className="mt-10 border border-slate-200 bg-white p-12 text-center">
               <Wrench
                 size={40}
                 className="mx-auto text-slate-400"
@@ -237,7 +256,7 @@ function Services() {
 
           {/* Groups */}
           {!loading && !error && services.length > 0 && (
-            <div className="mt-14 space-y-20">
+            <div className="mt-10 space-y-20">
               {serviceGroups.map((group) => {
                 const groupServices = group.services
                   .map((slug) => getService(slug))
@@ -279,6 +298,16 @@ function Services() {
                             <article
                               className="group bg-white p-8 transition duration-300 hover:-translate-y-1 hover:bg-slate-950 hover:text-white hover:shadow-xl md:p-10"
                             >
+                            {serviceImages[service.slug] && (
+                              <div className="mb-8 h-48 overflow-hidden bg-slate-100">
+                                <img
+                                  src={serviceImages[service.slug]}
+                                  alt={service.title}
+                                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                                />
+                              </div>
+                            )}
+
                             <div className="flex items-start justify-between gap-6">
                               <div className="flex h-12 w-12 items-center justify-center bg-slate-950 text-white transition duration-300 group-hover:scale-105 group-hover:bg-white group-hover:text-slate-950">
                                 <Icon size={22} />
@@ -344,7 +373,7 @@ function Services() {
       </section>
 
       {/* SERVICE DELIVERY */}
-      <section className="bg-white py-24 md:py-28">
+      <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <Reveal y={28}>
             <div className="max-w-2xl">
@@ -364,7 +393,7 @@ function Services() {
             </div>
           </Reveal>
 
-          <StaggerContainer className="mt-14 grid border-l border-t border-slate-200 md:grid-cols-4">
+          <StaggerContainer className="mt-10 grid border-l border-t border-slate-200 md:grid-cols-4">
             {[
               {
                 number: "01",
@@ -410,7 +439,7 @@ function Services() {
       </section>
 
       {/* CTA */}
-      <section className="bg-slate-950 py-24 text-white md:py-28">
+      <section className="bg-slate-950 py-16 text-white md:py-20">
         <Reveal y={30}>
           <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">

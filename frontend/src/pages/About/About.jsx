@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import Reveal from "../../components/common/Reveal";
 import StaggerContainer from "../../components/common/StaggerContainer";
 import StaggerItem from "../../components/common/StaggerItem";
+import aboutTeamImage from "../../assets/about/about-team.webp";
 
 const capabilities = [
   {
@@ -71,8 +72,10 @@ function About() {
   return (
     <main>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32 lg:py-36">
-        <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-white/[0.03] blur-3xl" />
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-white md:py-28">
+        <img src={aboutTeamImage} alt="MAS technical team" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/78" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.92),rgba(2,6,23,0.55),rgba(2,6,23,0.75))]" />
 
         <div className="relative mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <div className="max-w-4xl">
@@ -104,8 +107,8 @@ function About() {
       </section>
 
       {/* WHO WE ARE */}
-      <section className="bg-white py-20 md:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-10 lg:grid-cols-2 lg:gap-20 lg:px-16">
+      <section className="bg-white py-16 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12 lg:px-16">
           <Reveal y={30}>
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -115,34 +118,42 @@ function About() {
               <h2 className="mt-4 max-w-xl text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
                 Supporting better project outcomes through technical expertise.
               </h2>
+
+              <div className="mt-7 space-y-5 text-base leading-8 text-slate-600">
+                <p>
+                  MAS is a technical services organization focused on providing
+                  inspection, quality assurance, quality control and technical
+                  project support.
+                </p>
+
+                <p>
+                  Our services are designed to help clients maintain visibility,
+                  quality and control throughout different stages of a project,
+                  from procurement and manufacturing to inspection and delivery.
+                </p>
+
+                <p>
+                  We work with a practical approach, combining technical
+                  knowledge, structured processes and clear communication.
+                </p>
+              </div>
             </div>
           </Reveal>
 
           <Reveal delay={0.12} y={30}>
-            <div className="space-y-5 text-base leading-8 text-slate-600">
-              <p>
-                MAS is a technical services organization focused on providing
-                inspection, quality assurance, quality control and technical
-                project support.
-              </p>
-
-              <p>
-                Our services are designed to help clients maintain visibility,
-                quality and control throughout different stages of a project,
-                from procurement and manufacturing to inspection and delivery.
-              </p>
-
-              <p>
-                We work with a practical approach, combining technical
-                knowledge, structured processes and clear communication.
-              </p>
+            <div className="group overflow-hidden bg-slate-100">
+              <img
+                src={aboutTeamImage}
+                alt="MAS technical team"
+                className="h-[360px] w-full object-cover transition duration-700 group-hover:scale-105 md:h-[460px]"
+              />
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* MISSION / VISION */}
-      <section className="bg-slate-50 py-20 md:py-24">
+      <section className="bg-slate-50 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <StaggerContainer className="grid gap-6 md:grid-cols-2">
             {/* Mission */}
@@ -195,7 +206,7 @@ function About() {
       </section>
 
       {/* CAPABILITIES */}
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <Reveal y={30}>
             <div className="max-w-2xl">
@@ -209,7 +220,7 @@ function About() {
             </div>
           </Reveal>
 
-          <StaggerContainer className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+          <StaggerContainer className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-4">
             {capabilities.map((item) => {
               const Icon = item.icon;
 
@@ -237,7 +248,7 @@ function About() {
 
       {/* VALUES */}
       <section className="bg-slate-950 py-20 text-white md:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-10 lg:grid-cols-2 lg:gap-20 lg:px-16">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-10 lg:grid-cols-2 lg:gap-14 lg:px-16">
           <Reveal y={30}>
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
@@ -280,9 +291,9 @@ function About() {
       </section>
 
       {/* APPROACH */}
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
             <Reveal y={30}>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -325,7 +336,7 @@ function About() {
       </section>
 
       {/* CTA */}
-      <section className="bg-slate-100 py-20 md:py-24">
+      <section className="bg-slate-100 py-16 md:py-20">
         <Reveal y={30}>
           <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
             <div className="mx-auto flex h-12 w-12 items-center justify-center bg-slate-950 text-white">
