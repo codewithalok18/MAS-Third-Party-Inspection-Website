@@ -7,7 +7,7 @@ import {
   Users,
   ClipboardCheck,
   MessageSquare,
- } from "lucide-react";
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "../../components/common/Reveal";
 import StaggerContainer from "../../components/common/StaggerContainer";
@@ -73,8 +73,14 @@ function About() {
     <main>
       {/* HERO */}
       <section className="relative overflow-hidden bg-slate-950 py-20 text-white md:py-28">
-        <img src={aboutTeamImage} alt="MAS technical team" className="absolute inset-0 h-full w-full object-cover" />
+        <img
+          src={aboutTeamImage}
+          alt="MAS technical team"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
         <div className="absolute inset-0 bg-slate-950/78" />
+
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.92),rgba(2,6,23,0.55),rgba(2,6,23,0.75))]" />
 
         <div className="relative mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
@@ -116,7 +122,8 @@ function About() {
               </p>
 
               <h2 className="mt-4 max-w-xl text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
-                Supporting better project outcomes through technical expertise.
+                Supporting better project outcomes through technical
+                expertise.
               </h2>
 
               <div className="mt-7 space-y-5 text-base leading-8 text-slate-600">
@@ -153,7 +160,10 @@ function About() {
       </section>
 
       {/* MISSION / VISION */}
-      <section className="bg-slate-50 py-16 md:py-20">
+      <section
+        id="mission-vision"
+        className="scroll-mt-28 bg-slate-50 py-16 md:py-20"
+      >
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <StaggerContainer className="grid gap-6 md:grid-cols-2">
             {/* Mission */}
@@ -247,7 +257,10 @@ function About() {
       </section>
 
       {/* VALUES */}
-      <section className="bg-slate-950 py-20 text-white md:py-24">
+      <section
+        id="values"
+        className="scroll-mt-28 bg-slate-950 py-20 text-white md:py-24"
+      >
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-10 lg:grid-cols-2 lg:gap-14 lg:px-16">
           <Reveal y={30}>
             <div>
@@ -291,7 +304,10 @@ function About() {
       </section>
 
       {/* APPROACH */}
-      <section className="bg-white py-16 md:py-20">
+      <section
+        id="approach"
+        className="scroll-mt-28 bg-white py-16 md:py-20"
+      >
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
             <Reveal y={30}>
@@ -335,6 +351,164 @@ function About() {
         </div>
       </section>
 
+      {/* CERTIFICATIONS */}
+      <section
+        id="certifications"
+        className="scroll-mt-28 bg-slate-50 py-16 md:py-20"
+      >
+        <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
+          <Reveal y={30}>
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Certifications & Compliance
+              </p>
+
+              <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
+                Standards, documentation and compliance.
+              </h2>
+
+              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600">
+                MAS maintains a structured approach to quality, technical
+                documentation and project compliance. Relevant company
+                certifications, policies and supporting documents can be
+                provided according to project and client requirements.
+              </p>
+            </div>
+          </Reveal>
+
+          <StaggerContainer className="mt-10 grid gap-5 md:grid-cols-3">
+            <StaggerItem>
+              <article className="border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-lg">
+                <div className="flex h-11 w-11 items-center justify-center bg-slate-950 text-white">
+                  <ShieldCheck size={22} />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-slate-950">
+                  Quality Standards
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-slate-500">
+                  Quality-focused processes designed around defined project
+                  requirements and documentation.
+                </p>
+              </article>
+            </StaggerItem>
+
+            <StaggerItem>
+              <article className="border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-lg">
+                <div className="flex h-11 w-11 items-center justify-center bg-slate-950 text-white">
+                  <ClipboardCheck size={22} />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-slate-950">
+                  Compliance Documentation
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-slate-500">
+                  Structured documentation and reporting to support inspection,
+                  quality and compliance activities.
+                </p>
+              </article>
+            </StaggerItem>
+
+            <StaggerItem>
+              <article className="border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-lg">
+                <div className="flex h-11 w-11 items-center justify-center bg-slate-950 text-white">
+                  <CheckCircle2 size={22} />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-slate-950">
+                  Project Requirements
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-slate-500">
+                  Documentation and supporting records can be aligned with
+                  applicable client and project requirements.
+                </p>
+              </article>
+            </StaggerItem>
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* CORPORATE INFORMATION */}
+      <section
+        id="corporate-information"
+        className="scroll-mt-28 bg-white py-16 md:py-20"
+      >
+        <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-20">
+            <Reveal y={30}>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  Corporate Information
+                </p>
+
+                <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl">
+                  About MAS
+                </h2>
+
+                <p className="mt-5 max-w-md leading-7 text-slate-600">
+                  MAS Third-Party Inspection & Expediting Service provides
+                  inspection, quality and technical support services for
+                  industrial and project requirements.
+                </p>
+              </div>
+            </Reveal>
+
+            <StaggerContainer className="grid gap-4 sm:grid-cols-2">
+              <StaggerItem>
+                <div className="border border-slate-200 p-6 transition duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-lg">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                    Company
+                  </p>
+
+                  <p className="mt-3 text-lg font-bold text-slate-950">
+                    MAS Third-Party Inspection & Expediting Service
+                  </p>
+                </div>
+              </StaggerItem>
+
+              <StaggerItem>
+                <div className="border border-slate-200 p-6 transition duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-lg">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                    Core Focus
+                  </p>
+
+                  <p className="mt-3 text-lg font-bold text-slate-950">
+                    Inspection, Quality & Technical Services
+                  </p>
+                </div>
+              </StaggerItem>
+
+              <StaggerItem>
+                <div className="border border-slate-200 p-6 transition duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-lg">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                    Service Approach
+                  </p>
+
+                  <p className="mt-3 text-lg font-bold text-slate-950">
+                    Professional & Project-Focused
+                  </p>
+                </div>
+              </StaggerItem>
+
+              <StaggerItem>
+                <div className="border border-slate-200 p-6 transition duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-lg">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                    Client Support
+                  </p>
+
+                  <p className="mt-3 text-lg font-bold text-slate-950">
+                    Technical Coordination & Reporting
+                  </p>
+                </div>
+              </StaggerItem>
+            </StaggerContainer>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-slate-100 py-16 md:py-20">
         <Reveal y={30}>
@@ -366,7 +540,6 @@ function About() {
           </div>
         </Reveal>
       </section>
-
     </main>
   );
 }
