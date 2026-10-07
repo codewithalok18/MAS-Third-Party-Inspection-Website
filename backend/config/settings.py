@@ -108,12 +108,12 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-     "whitenoise.middleware.WhiteNoiseMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 
     # React frontend -> Django API
     "corsheaders.middleware.CorsMiddleware",
 
+    "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -284,7 +284,7 @@ STORAGES = {
 # Media files
 # =========================================================
 
-MEDIA_URL = "media/"
+MEDIA_URL = "/media/"
 
 MEDIA_ROOT = BASE_DIR / "media"
 
