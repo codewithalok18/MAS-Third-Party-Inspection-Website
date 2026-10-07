@@ -14,27 +14,27 @@ import masLogoMark from "../../assets/mas-logo-mark(1).png";
 const services = [
   {
     label: "Inspection Services",
-    href: "/services#inspection-services",
+    href: "/services/inspection-services",
   },
   {
     label: "Quality Assurance",
-    href: "/services#quality-assurance",
+    href: "/services/quality-assurance",
   },
   {
     label: "Quality Control",
-    href: "/services#quality-control",
+    href: "/services/quality-control",
   },
   {
     label: "Expediting",
-    href: "/services#expediting",
+    href: "/services/expediting",
   },
   {
     label: "Technical Services",
-    href: "/services#technical-services",
+    href: "/services/technical-services",
   },
   {
     label: "Audit & Compliance",
-    href: "/services#audit-compliance",
+    href: "/services/audit-compliance",
   },
 ];
 
