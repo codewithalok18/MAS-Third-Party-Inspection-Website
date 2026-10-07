@@ -3,21 +3,21 @@ import { Link } from "react-router-dom";
 import masLogoHorizontal from "../../assets/mas-logo-horizontal-footer.png";
 
 const serviceLinks = [
-  ["Inspection Services", "/services#inspection-services"],
-  ["Quality Assurance", "/services#quality-assurance"],
-  ["Quality Control", "/services#quality-control"],
-  ["Expediting", "/services#expediting"],
-  ["Technical Services", "/services#technical-services"],
-  ["Audit & Compliance", "/services#audit-compliance"],
+  ["Inspection Services", "/services/inspection-services"],
+  ["Quality Assurance", "/services/quality-assurance"],
+  ["Quality Control", "/services/quality-control"],
+  ["Expediting", "/services/expediting"],
+  ["Technical Services", "/services/technical-services"],
+  ["Audit & Compliance", "/services/audit-compliance"],
 ];
 
 const industryLinks = [
-  ["Oil & Gas", "/industries#oil-gas"],
-  ["Renewable Energy", "/industries#renewable-energy"],
-  ["Infrastructure", "/industries#infrastructure"],
-  ["Mining & Minerals", "/industries#mining-minerals"],
-  ["Manufacturing", "/industries#manufacturing"],
-  ["Industrial Projects", "/industries#industrial-projects"],
+  ["Oil & Gas", "/industries/oil-gas"],
+  ["Renewable Energy", "/industries/renewable-energy"],
+  ["Infrastructure", "/industries/infrastructure"],
+  ["Mining & Minerals", "/industries/mining-minerals"],
+  ["Manufacturing", "/industries/manufacturing"],
+  ["Industrial Projects", "/industries/industrial-projects"],
 ];
 
 function Footer() {

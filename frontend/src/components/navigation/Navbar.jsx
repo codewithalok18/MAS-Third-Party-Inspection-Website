@@ -68,27 +68,27 @@ const aboutItems = [
 const industries = [
   {
     label: "Oil & Gas",
-    href: "/industries#oil-gas",
+    href: "/industries/oil-gas",
   },
   {
     label: "Renewable Energy",
-    href: "/industries#renewable-energy",
+    href: "/industries/renewable-energy",
   },
   {
     label: "Infrastructure",
-    href: "/industries#infrastructure",
+    href: "/industries/infrastructure",
   },
   {
     label: "Mining & Minerals",
-    href: "/industries#mining-minerals",
+    href: "/industries/mining-minerals",
   },
   {
     label: "Manufacturing",
-    href: "/industries#manufacturing",
+    href: "/industries/manufacturing",
   },
   {
     label: "Industrial Projects",
-    href: "/industries#industrial-projects",
+    href: "/industries/industrial-projects",
   },
 ];
 
