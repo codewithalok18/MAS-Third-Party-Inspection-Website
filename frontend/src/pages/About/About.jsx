@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import {
   ArrowRight,
   CheckCircle2,
@@ -8,7 +10,7 @@ import {
   ClipboardCheck,
   MessageSquare,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Reveal from "../../components/common/Reveal";
 import StaggerContainer from "../../components/common/StaggerContainer";
 import StaggerItem from "../../components/common/StaggerItem";
@@ -69,6 +71,27 @@ const approachSteps = [
 ];
 
 function About() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+
+    const id = decodeURIComponent(location.hash.substring(1));
+
+    const timer = setTimeout(() => {
+      const element = document.getElementById(id);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [location.hash]);
+
   return (
     <main>
       {/* HERO */}
