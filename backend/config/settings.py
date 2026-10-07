@@ -62,7 +62,7 @@ if not DEBUG:
     # HSTS
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
+    
 
     # Secure cookies
     SESSION_COOKIE_SECURE = True
